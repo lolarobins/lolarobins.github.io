@@ -1,0 +1,399 @@
+<!-- i hate html -->
+<!DOCTYPE html>
+<html lang="en-CA">
+
+<head>
+    <!-- actual header & meta stuff -->
+    <title>lola's page</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="author" content="lola robins" />
+    <meta name="description" content="lola's website with various things" />
+
+    <meta name="og:title" content="lola's gay web thing" />
+    <meta name="og:description" content="lola's website with various things" />
+
+    <meta name="theme-color" content="#b32c6d" />
+
+    <!-- scary styles -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+    <style>
+        /* noto sans */
+        @import url('https://fonts.googleapis.com/css2?family=family=Noto+Sans+Mono:wght@400;500&display=swap');
+
+        html,
+        body {
+            font-family: 'Noto Sans Mono', monospace;
+            color: #fcfcfc;
+
+            background-color: #b32c6d;
+            background-image: url("img/background.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+
+            width: 100%;
+        }
+
+        a,
+        b,
+        u {
+            color: #fcfcfc;
+            padding: 0;
+            margin: 0;
+        }
+
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Noto Sans Mono', monospace;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        h1 {
+            font-size: 4.8vh;
+            font-weight: 500;
+        }
+
+        h2 {
+            font-size: 2.4vh;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-size: 2vh;
+            font-weight: 400;
+        }
+
+        .text {
+            font-size: 1.8vh;
+            font-weight: 400;
+        }
+
+        .smalltext {
+            font-size: 1.2vh;
+            font-weight: 400;
+        }
+
+        li {
+            list-style-type: square;
+        }
+
+        #content-right {
+            height: fit-content;
+        }
+
+        #topbar {
+            width: 100%;
+            height: 3.2vh;
+
+            margin: 0;
+            padding: 0;
+
+            align-items: center;
+
+            border-radius: .5vh .5vh 0 0;
+            background-color: rgba(161, 21, 154, .5);
+
+            user-select: none;
+        }
+
+        #topbar-items {
+            height: 100%;
+            float: left;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding-left: .25vh;
+        }
+
+        #topbar-icons {
+            height: 100%;
+            aspect-ratio: 3;
+            float: right;
+
+            display: table-cell;
+            text-align: center;
+        }
+
+        .topbar-icon {
+            height: 100%;
+            line-height: 100%;
+            aspect-ratio: 1;
+
+            float: left;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: rgba(161, 21, 154, .5);
+        }
+
+        .topbar-icon:hover {
+            background-color: hsla(303, 37%, 37%, .5);
+            transition: background-color .1s;
+            cursor: pointer;
+        }
+
+        .topbar-icon.exit {
+            background-color: rgba(245, 26, 132, .5);
+            border-top-right-radius: .5vh;
+        }
+
+        .topbar-icon.exit:hover {
+            background-color: hsla(331, 65%, 53%, .5);
+        }
+
+        #app-content {
+            width: 100%;
+            backdrop-filter: blur(4px);
+            background-color: rgba(100, 100, 100, .5);
+            border-radius: 0 0 .5vh .5vh;
+        }
+
+        #app-list {
+            margin-left: 1vh;
+            user-select: none;
+        }
+
+        #app-items {
+            display: flex;
+
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .app-item {
+            border-top: 1% solid #b32c6d;
+            border-left: 1% solid #b32c6d;
+
+            width: 8vh;
+            height: 8vh;
+
+            cursor: pointer;
+            text-align: center;
+
+            padding: 1vh;
+            margin-top: .4vh;
+        }
+
+        .app-item:hover {
+            background-color: hsla(303, 37%, 37%, .5);
+            border-radius: 1vh;
+            transition: background-color .1s;
+        }
+
+        .app-item-image {
+            height: 64%;
+
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .app-item-image.blank-icon {
+            background-image: url("img/blank-icon.png");
+        }
+
+        .app-item-label {
+            margin-top: 1vh;
+            height: 36%;
+            align-content: center;
+            font-size: 100%;
+        }
+
+        /* desktop viewport */
+        @media only screen and (min-aspect-ratio: 1.2) {
+
+            html,
+            body {
+                display: flex;
+            }
+
+            #content-left {
+                margin: 2% 5%;
+                width: 50%;
+            }
+
+            #content-right {
+                margin: 2% 5%;
+                width: 50%;
+            }
+
+            #mobile-split {
+                visibility: hidden;
+            }
+        }
+
+        /* mobile viewport */
+        @media only screen and (max-aspect-ratio: 1.2) {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            #content-left {
+                text-align: center;
+
+                width: 90%;
+                margin: 10% 5%;
+            }
+
+            #content-right {
+                width: 90%;
+                margin: 10% 5%;
+            }
+
+            #mobile-split {
+                width: 85%;
+            }
+
+            li {
+                list-style-type: none;
+                margin-top: .02vh;
+                margin-bottom: .4vh;
+                padding-left: 0;
+            }
+
+            ul {
+                padding: 0;
+            }
+        }
+    </style>
+
+    <!-- and super scripts -->
+    <script>
+        // show window
+        function hideWindow() {
+            document.getElementById("app-content").style.visibility = "hidden";
+            document.getElementById("app-content").style.height = "0";
+        }
+
+        function showWindow() {
+            document.getElementById("app-content").style.visibility = "inherit";
+            document.getElementById("app-content").style.height = "inherit";
+        }
+
+        function returnToMenu() {
+            document.getElementById("app-list").style.visibility = "inherit";
+            document.getElementById("app-list").style.height = "inherit";
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="content-left">
+        <h1>lola robins</h1>
+        <br />
+        <h2><u>a</u>bout me:</h2>
+        <p class="text">
+            19 year old looking to pursue a future in designing software for *nix computers and
+            microcontroller applications.
+        </p>
+        <br /><br />
+        <h2><u>e</u>xperience:</h2>
+        <ul class="parent-list">
+            <li>
+                <h3>4069 lo-ellen robotics</h3>
+                <p class="smalltext">high school frc robotics team from sudbury, on</p>
+                <br>
+                <p class="text">
+                <ul>
+                    <li>worked on programming and controls for our first robotics competition (frc) robot in 2022</li>
+                    <li>used computer aided design and drilling machines to build prototypes for robot components</li>
+                    <li>gained proficiency in java and arduino programming</li>
+                </ul>
+                </p>
+            </li>
+            <br />
+            <li>
+                <h3>personal programming experience</h3>
+                <p class="smalltext">experience gained from personal programming projects</p>
+                <br>
+                <p class="text">
+                <ul>
+                    <li>gained proficiency in golang, c, and arduino ide c++ for esp32 development</li>
+                    <li>experienced in designing server applications and data protocols over tcp/ip</li>
+                    <li>works with linux and macos frequently using command line utilities</li>
+                </ul>
+                </p>
+            </li>
+        </ul>
+        <br /><br />
+        <h2><u>l</u>inks:</h2>
+        <p class="text">
+        <ul>
+            <li><a href="https://linkedin.com/in/lolarobins">linkedin</a></li>
+            <li><a href="https://github.com/lolarobins">github</a></li>
+            <li><a href="https://instagram.com/lolastechposting">tech instagram</a></li>
+            <li><a href="mailto:lola@lolarobins.ca">email</a></li>
+
+        </ul>
+        </p>
+
+    </div>
+
+    <hr id="mobile-split" />
+
+    <div id="content-right">
+        <div id="topbar">
+            <div id="topbar-items">
+                <span id="app-icon" class="material-icons">
+                    description
+                </span>
+                <p>&nbsp</p>
+                <p class="app-title">application launcher</p>
+            </div>
+            <div id="topbar-icons">
+                <div class="topbar-icon">
+                    <span class="material-icons" onclick="hideWindow();">minimize</span>
+                </div>
+                <div class="topbar-icon" onclick="showWindow();">
+                    <span class="material-icons">open_in_full</span>
+                </div>
+                <div class="topbar-icon exit">
+                    <span class="material-icons" onclick="returnToMenu()">close</span>
+                </div>
+            </div>
+        </div>
+        <div id="app-content">
+            <div id="app-list">
+                <br />
+                <p class="text">current projects:</h3>
+                    <br />
+                <div id="app-items">
+                    <p><br>Segmentation fault (core dumped)<br><i>(this section is incomplete!)</i></p>
+                    <!--
+                    <div class="app-item">
+                        <div class="app-item-image"> </div>
+                        <p class="app-item-label">example</p>
+                    </div>
+                    <div class="app-item">
+                        <div class="app-item-image"> </div>
+                        <p class="app-item-label">example</p>
+                    </div>
+                    <div class="app-item">
+                        <div class="app-item-image spotify"> </div>
+                        <p class="app-item-label">example</p>
+                    </div>
+                    -->
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
