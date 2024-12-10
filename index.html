@@ -48,7 +48,18 @@ MIT license <https://opensource.org/license/mit>
         h2 {
             margin: 0;
             padding: 0;
-            font-size: 18px;
+            font-size: 22px;
+        }
+
+        h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
         }
 
         body {
@@ -77,22 +88,21 @@ MIT license <https://opensource.org/license/mit>
         }
 
         #header {
-            margin: 0;
-            padding: 0;
+            margin: 0.4rem 0;
+            padding: 0.4rem 0;
             width: 100%;
-            margin: .25rem 0;
         }
 
         #divider {
             height: .025rem;
             width: 100%;
             background-color: #bbb;
-            margin: .4rem 0;
+            margin: 0;
         }
 
         #navbar {
             margin: 0;
-            padding: 0;
+            padding: 0.1rem 0;
             text-align: center;
             margin: .25rem 0;
         }
@@ -100,6 +110,19 @@ MIT license <https://opensource.org/license/mit>
         a {
             font-style: italic;
             color: #f77;
+        }
+
+        /* reduced size line break for nicer spacing between subsections */
+        .small-br {
+            font-size: 0.4rem;
+        }
+
+        #about,
+        #links,
+        #projects,
+        #coolthings {
+            padding: 0.25rem 0;
+            margin: 0.6rem 0 0.2rem 0;
         }
     </style>
 </head>
@@ -121,21 +144,61 @@ MIT license <https://opensource.org/license/mit>
 
     <table id="navbar">
         <tr>
-            <td><a href="#about">about loler</a></td>
-            <td><a href="#links">misc links</a></td>
-            <td><a href="#projects">projects (ongoing/ideas)</a></td>
-            <td><a href="#coolthins">other cool things</a></td>
+            <td>
+                <h3><a href="#about">about loler</h3></a>
+            </td>
+            <td>
+                <h3><a href="#links">misc links</h3></a>
+            </td>
+            <td>
+                <h3><a href="#projects">projects</h3></a>
+            </td>
+            <td>
+                <h3><a href="#coolthings">other cool things</h3></a>
+            </td>
 
         </tr>
     </table>
 
     <div id="divider"></div>
-    <br>
-    <h2>meow mrrow meow mrow meeeeow mrow meowmrow meow</h2>
-    <p>
-        meow mrrow
-        ok i gotta update this lol thats coming sometime soon tho :3
-    </p>
+
+    <div id="about">
+        <h2>about loler</h2>
+        <p>
+            meow mrrow
+            ok i gotta update this lol thats coming sometime soon tho :3
+        </p>
+    </div>
+
+    <div id="links">
+        <h2>misc links</h2>
+    </div>
+
+    <div id="projects">
+        <h2>projects (past, current, & planned)</h2>
+        <p class="small-br">&nbsp</p>
+        <h3>lolang compiler toolchain (current)</h3>
+        <p>lolang is a compiler idea i have been planning to make for over two years (as of dec, 2024.) this is a
+            project i mainly wanted to do just for fun, and as a learning experience.<br>my goal is to start with
+            designing the base compiler, as well as adding a half-decent build system, and then slowly adding libraries
+            and bindings while writing my other project ideas in lolang simultaneously.<br>currently, i am using C to
+            write it, but as i intend to design this as a compiled language that can build to a static bin with only a c
+            std lib dependency, i would like to write lolang, in lolang. :3</p>
+        <p class="small-br">&nbsp</p>
+        <h3>other ideas</h3>
+        <p>2d city builder (unnamed): my intent was to learn how to use an existing game or graphic library to write a
+            2d city-building game with simple graphics and low spec requirements, either in C, or in my planned
+            programming language, lolang. </p>
+    </div>
+
+    <div id="coolthings">
+        <h2>other cool things</h2>
+        <p class="small-br">&nbsp</p>
+        <h3>music</h3>
+        <p>drain, mostly!</p>
+    </div>
+
+
 </body>
 
 </html>
