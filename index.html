@@ -53,7 +53,7 @@ MIT license <https://opensource.org/license/mit>
 
         h3 {
             margin: 0;
-            padding: 0;
+            padding: 0.25rem 0;
             font-size: 16px;
         }
 
@@ -70,8 +70,22 @@ MIT license <https://opensource.org/license/mit>
 
             background-color: #222020;
             color: #cacaca;
-            width: 90%;
-            margin-left: 5%;
+            width: 96%;
+            margin-left: 2%;
+        }
+
+        @media (min-aspect-ratio: 2/3) {
+            body {
+                width: 90%;
+                margin-left: 5%;
+            }
+        }
+
+        @media (min-aspect-ratio: 1) {
+            body {
+                width: 100vh;
+                margin: auto;
+            }
         }
 
         tr {
@@ -87,8 +101,17 @@ MIT license <https://opensource.org/license/mit>
             padding: 0;
         }
 
+        ul {
+            margin: 0.25rem;
+            padding: 0 0 0 2rem;
+        }
+
+        li {
+            padding: 0.1rem 0;
+        }
+
         #header {
-            margin: 0.4rem 0;
+            margin: 0.4rem 0 0.8rem;
             padding: 0.4rem 0;
             width: 100%;
         }
@@ -112,9 +135,16 @@ MIT license <https://opensource.org/license/mit>
             color: #f77;
         }
 
-        /* reduced size line break for nicer spacing between subsections */
+        .medium-font {
+            font-weight: 500;
+        }
+
         .small-br {
             font-size: 0.4rem;
+        }
+
+        .smaller-br {
+            font-size: 0.2rem;
         }
 
         #about,
@@ -122,7 +152,7 @@ MIT license <https://opensource.org/license/mit>
         #projects,
         #coolthings {
             padding: 0.25rem 0;
-            margin: 0.6rem 0 0.2rem 0;
+            margin: 1rem 0 0.2rem 0;
         }
     </style>
 </head>
@@ -166,29 +196,95 @@ MIT license <https://opensource.org/license/mit>
         <h2>about loler</h2>
         <p>
             meow mrrow
-            ok i gotta update this lol thats coming sometime soon tho :3
+            site is still in progress, thanks for checking it out :3
         </p>
     </div>
 
     <div id="links">
         <h2>misc links</h2>
+        <p class="small-br">&nbsp</p>
+
+        <p><span class="medium-font">github:</span> <a href="https://github.com/lolarobins">@lolarobins</a></p>
+        <p><span class="medium-font">bluesky:</span> <a href="https://bsky.app/profile/lola.sh">@lola.sh</a></p>
     </div>
 
     <div id="projects">
         <h2>projects (past, current, & planned)</h2>
         <p class="small-br">&nbsp</p>
-        <h3>lolang compiler toolchain (current)</h3>
-        <p>lolang is a compiler idea i have been planning to make for over two years (as of dec, 2024.) this is a
-            project i mainly wanted to do just for fun, and as a learning experience.<br>my goal is to start with
-            designing the base compiler, as well as adding a half-decent build system, and then slowly adding libraries
-            and bindings while writing my other project ideas in lolang simultaneously.<br>currently, i am using C to
-            write it, but as i intend to design this as a compiled language that can build to a static bin with only a c
-            std lib dependency, i would like to write lolang, in lolang. :3</p>
-        <p class="small-br">&nbsp</p>
-        <h3>other ideas</h3>
-        <p>2d city builder (unnamed): my intent was to learn how to use an existing game or graphic library to write a
-            2d city-building game with simple graphics and low spec requirements, either in C, or in my planned
-            programming language, lolang. </p>
+
+        <div>
+            <h3>lolang programming language (compiler and toolchain) (<a
+                    href="https://github.com/lolarobins/lolang">github</a>)</h3>
+            <p>lolang is a compiler idea i have been planning to make for over two years (as of the summer of 2024.)
+                this is a project i mainly wanted to do just for fun, and as a learning experience.</p>
+            <p class="small-br">&nbsp</p>
+            <p>my goal is to start with designing the base compiler, as well as adding a half-decent build system with
+                support for managing dependencies, and then slowly adding libraries and bindings for C as-needed while
+                writing my other project ideas in lolang simultaneously.</p>
+            <p class="small-br">&nbsp</p>
+            <p>at the moment, i am writing the compiler and toolchain in C. in the future, i plan to have lolang written
+                inside of lolang. source code will output to C and then be passed to a C compiler, allowing compilation
+                across architectures and platforms where a C compiler and stdlib are already suppported. initially, the
+                C std library will be a dependency for bindings of necessary system functions and calls (likely for
+                quite a while, again, well established and wide plaform support) but i intend to write a base C library
+                specific to the needs of lolang in the future if possible.</p>
+            <p class="small-br">&nbsp</p>
+            <p class="medium-font">current plans for development:</p>
+            <ul>
+                <li>complete lexer/parser and source code output</li>
+                <li>centre around namespaces and projects for easy dependency and library management</li>
+                <li>create customizable build system that supports fetching dependencies online through git</li>
+                <li>write std library for lolang (with cstdlib dependency) to be used in all source files with a mixture
+                    of C and lolang. will compile to a library that will either be dynamically or statically linked to
+                    the finished executable
+                </li>
+                <li>write bindings for posix library bindings and functions, ensure cross-platform support between
+                    linux/macos/freebsd priority</li>
+                <li>
+                    write *nice working and hopefully not bad* std libraries for modern language features such as
+                    multithreading (done by passing a callback function, which can be declared inline), cloning without
+                    strange behaviour, networking, embedding raw files, and serialization/deserialization for common
+                    markup and configuration formats such as ini, yaml, and json.
+                </li>
+                <li>
+                    write extra libraries and bindings for things such as sdl, opengl, vulkan, a custom gui library,
+                    openssl, zlib, and other misc. common libaries used on linux & other posix-like operating systems.
+                </li>
+                <li>low priority: bindings and std library for targets such as windows, as well as embedded devices
+                    supported by arduino ide & platformio (with or without freeRTOS support.)</li>
+            </ul>
+            <p class="small-br">&nbsp</p>
+        </div>
+
+        <div>
+            <h3>larryfetch (larry the cow ascii art for neofetch) (<a
+                    href="https://github.com/lolarobins/larrythecow">github</a>)</h3>
+            <p>using a png->braille character generator that i wrote (<a
+                    href="https://github.com/lolarobins/termiart">termiart</a>), alongside painstakingly adding the
+                colours manually in the format neofetch wants.</p>
+            <p class="small-br">&nbsp</p>
+        </div>
+
+        <div>
+            <h3>other ideas</h3>
+            <p><span class="medium-font">2d city builder (unnamed):</span> my intent was to learn how to use an existing
+                game or graphic library to write a 2d city-building game with simple graphics and low system spec
+                requirements, either in C, or in lolang once possible</p>
+            <p class="smaller-br">&nbsp</p>
+            <p><span class="medium-font">remote access minecraft server container manager (unnamed):</span> i plan to
+                write a program specifically for containerizing common minecraft server implementations such as the many
+                common forks stemming from craftbukkit. this will securely allow remote access for server administrators
+                with extensive control over their server from the panel. this will also allow choosing limits for
+                resource usage such as memory and CPU, and isolate the server from the host's filesystem.
+            </p>
+            <p class="smaller-br">&nbsp</p>
+            <p><span class="medium-font">a minecraft server (unnamed):</span> building off of the notchian protocol for
+                minecraft servers that <a href="https://wiki.vg">wiki.vg</a> graciously reverse-engineered and
+                documented, i would like to create minecraft server implementation as an experiment into networking as
+                well as building 3d worlds programatically. this would be mainly focused around creative building
+                (specifically city building) and would allow me to experiment with programming smooth city generation
+                in-game.</p>
+        </div>
     </div>
 
     <div id="coolthings">
