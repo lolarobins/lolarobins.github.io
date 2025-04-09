@@ -1,7 +1,7 @@
 <!-- 
 lola's dumb little webpage because i still don't have anything at lola.sh & lolarobins.ca
 
-copyright (C) 2024 lolasnotunix / lola robins
+copyright (C) 2024 - 2025 lolasnotunix / lola robins
 MIT license <https://opensource.org/license/mit> 
 -->
 <!DOCTYPE html>
@@ -208,7 +208,7 @@ MIT license <https://opensource.org/license/mit>
         <p style="font-weight: 300; font-style: italic;">*the* lola of all time</p>
         <p class="small-br">&nbsp</p>
         <p>meow mrrow
-        site is still in progress, thanks for checking it out :3
+            site is still in progress, thanks for checking it out :3
         </p>
     </div>
 
@@ -236,7 +236,9 @@ MIT license <https://opensource.org/license/mit>
                 <p class="small-br">&nbsp</p>
                 <p>my goal is to start with designing the base compiler, as well as adding a half-decent build system
                     with support for managing dependencies, and then slowly adding libraries and bindings for C
-                    as-needed while writing my other project ideas in lolang simultaneously.</p>
+                    as-needed while writing my other project ideas in lolang simultaneously. the reason i am not opting
+                    to use llvm is support for embedded platforms that use pre-existing C compilers, and would also like
+                    to just try out code generation manually</p>
                 <p class="small-br">&nbsp</p>
                 <p>at the moment, i am writing the compiler and toolchain in C. in the future, i plan to have lolang
                     written inside of lolang. source code will output to C and then be passed to a C compiler, allowing
@@ -244,16 +246,16 @@ MIT license <https://opensource.org/license/mit>
                     initially, the C std library will be a dependency for bindings of necessary system functions and
                     calls (likely for quite a while, again, well established and wide plaform support) but i intend to
                     write a base C library specific to the needs of lolang in the future if possible.</p>
+
                 <p class="small-br">&nbsp</p>
                 <h4>current plans for development:</h4>
-
                 <ul>
                     <li>complete lexer/parser and source code output</li>
                     <li>centre around namespaces and projects for easy dependency and library management</li>
                     <li>create customizable build system that supports fetching dependencies online through git</li>
-                    <li>write std library for lolang (with cstdlib dependency) to be used in all source files with a
-                        mixture of C and lolang. will compile to a library that will either be dynamically or statically
-                        linked to the finished executable
+                    <li>write standard library for lolang (with cstdlib dependency) to be used in all source files with
+                        a mixture of C and lolang. will compile to a library that will either be dynamically or
+                        statically linked to the finished executable
                     </li>
                     <li>write bindings for posix library bindings and functions, ensure cross-platform support between
                         linux/macos/freebsd priority</li>
@@ -262,8 +264,8 @@ MIT license <https://opensource.org/license/mit>
                         without strange behaviour, networking, embedding raw files, and serialization/deserialization
                         for common markup and configuration formats such as ini, yaml, and json.
                     </li>
-                    <li> write extra libraries and bindings for things such as sdl, opengl, vulkan, a custom gui
-                        library, openssl, zlib, and other misc. common libaries used on linux & other posix-like
+                    <li> write extra libraries and bindings for things such as sdl3, opengl, vulkan, a custom gui
+                        library, openssl, zlib, and other miscellaneous common libaries used on linux & other posix-like
                         operating systems.
                     </li>
                     <li>low priority: bindings and std library for targets such as windows, as well as embedded devices
@@ -304,7 +306,7 @@ MIT license <https://opensource.org/license/mit>
                 <h4>a minecraft server</h4>
                 <p class="indent"> building off of the notchian protocol for minecraft servers that <a
                         href="https://wiki.vg">wiki.vg</a> graciously reverse-engineered and documented, i would like to
-                    create minecraft server implementation as an experiment into networking as well as building 3d
+                    create minecraft server implementation as an experiment into networking as well as generating 3d
                     worlds programatically. this would be mainly focused around creative building (specifically city
                     building) and would allow me to experiment with programming smooth city generation in-game.</p>
             </div>
@@ -313,9 +315,21 @@ MIT license <https://opensource.org/license/mit>
 
     <div id="coolthings">
         <h2>other cool things</h2>
+        <p style="font-weight: 300; font-style: italic;">unsure how to categorize this to be honest lol</p>
         <p class="small-br">&nbsp</p>
-        <h3>music</h3>
-        <p class="indent">drain, mostly!</p>
+        <h3>music that i like in no specific order</h3>
+        <ul>
+            <li>bladee</li>
+            <li>weatherday (lola's pocket pc, rana plastic bubbles, weatherglow in collab w/ asian glow)</li>
+            <li>ecco2k</li>
+            <li>sonic youth</li>
+            <li>alvvays</li>
+            <li>kate bush</li>
+            <li>king gizz</li>
+            <li>julie</li>
+            <li>yung lean</li>
+            <li>idk i forget the rest tbh</li>
+        </ul>
     </div>
 
 
